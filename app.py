@@ -78,7 +78,14 @@ if st.session_state.result:
 
     st.subheader("Generated Fix")
     st.code(result["fix"], language="python")
-
+    # DOWNLOAD BUTTON
+    st.download_button(
+        label="⬇ Download Debugged File",
+        data=result["fix"],
+        file_name=f"fixed_{st.session_state.filename}",
+        mime="text/x-python"
+    )
+    
     st.subheader("Test Results")
     st.text(result["test_result"])
 
