@@ -91,17 +91,18 @@ if st.session_state.result:
 
     col1, col2 = st.columns(2)
 
-    approve = col1.button("✅ Approve Patch")
-    reject = col2.button("❌ Reject Patch")
+    # approve = col1.button("✅ Approve Patch")
+    # reject = col2.button("❌ Reject Patch")
 
-    if approve:
+    # if approve:
 
-        file_path = st.session_state.filename
+    #     file_path = st.session_state.filename
 
-        with open(file_path, "w") as f:
-            f.write(result["fix"])
+    #     with open(file_path, "w") as f:
+    #         f.write(result["fix"])
 
-        st.success(f"Patch applied successfully to {file_path}")
+    #     st.success(f"Patch applied successfully to {file_path}")
 
-    if reject:
-        st.warning("Fix rejected. You can run the agent again.")
+    # if reject:
+    #     st.warning("Fix rejected. You can run the agent again.")
+
