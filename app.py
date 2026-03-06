@@ -33,7 +33,7 @@ if not st.session_state.logged_in:
 # App Header
 # -------------------------
 
-st.title("🤖 AI Debug Agent")
+st.title("🤖 AI Python Debug Agent")
 st.write("Upload buggy code and describe the bug.")
 
 # -------------------------
@@ -223,3 +223,4 @@ if selected_session != "None":
 
     st.subheader("Test Result")
     st.text(session["test_result"])
+
