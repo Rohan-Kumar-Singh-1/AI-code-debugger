@@ -1,9 +1,10 @@
 streamlit
 langgraph
 langchain
-langchain-openai
 python-dotenv
 duckduckgo-search
 ddgs
 pydantic
+langchain-google-genai
+google-generativeai
 typing_extensions
