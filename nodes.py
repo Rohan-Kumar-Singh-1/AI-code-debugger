@@ -9,7 +9,8 @@ load_dotenv()
 llm = ChatOpenAI(
     model="openai/gpt-4o-mini",
     api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1"
+    base_url="https://openrouter.ai/api/v1",
+    max_tokens = 400
 )
 
 def clean_code(text):
@@ -98,3 +99,4 @@ def test_fix(state: AgentState):
     result = run_python(test_script)
 
     return {"test_result": result}
+
