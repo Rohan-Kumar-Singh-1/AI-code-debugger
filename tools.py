@@ -8,13 +8,27 @@ def read_code(file_path: str):
         return f.read()
 
 
-def search_docs(query: str):
-    from ddgs import DDGS
+from ddgs import DDGS
 
-    with DDGS() as ddgs:
-        results = ddgs.text(query, max_results=3)
-        return "\n".join([r["body"] for r in results])
 
+def search_docs(query):
+
+    try:
+        with DDGS() as ddgs:
+            results = list(ddgs.text(query, max_results=3))
+
+        if not results:
+            return "No documentation results found."
+
+        docs = "\n".join(
+            f"{r.get('title','')} - {r.get('body','')}"
+            for r in results
+        )
+
+        return docs
+
+    except Exception:
+        return "Documentation search failed or returned no results."
 
 def run_python(code: str):
     """
@@ -43,5 +57,6 @@ def run_python(code: str):
 def apply_patch(file_path: str, new_code: str):
     with open(file_path, "w") as f:
         f.write(new_code)
+
 
     return "Patch applied"
