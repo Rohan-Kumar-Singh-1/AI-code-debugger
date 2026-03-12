@@ -84,13 +84,13 @@ Bug Report:
 {state['bug_report']}
 
 Bug Analysis:
-{state['analysis']}
+{state.get('analysis', '')}
 
 Code:
 {state['code']}
 
 Docs:
-{state['docs']}
+{state.get('docs', '')}
 
 Generate a corrected version of the code.
 
@@ -105,7 +105,6 @@ Rules:
     fix = clean_code(response.content)
 
     return {"fix": fix}
-
 
 def generate_tests(state: AgentState):
 
@@ -141,3 +140,4 @@ def test_fix(state: AgentState):
     result = run_python(test_script)
 
     return {"test_result": result}
+
