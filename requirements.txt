@@ -8,3 +8,4 @@ pydantic
 langchain-google-genai
 google-generativeai
 typing_extensions
+langchain-openai
