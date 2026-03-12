@@ -8,7 +8,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-1.5-flash-latest",
     google_api_key=st.secrets["GEMINI_API_KEY"],
     temperature=0,
 )
@@ -99,5 +99,6 @@ def test_fix(state: AgentState):
     result = run_python(test_script)
 
     return {"test_result": result}
+
 
 
