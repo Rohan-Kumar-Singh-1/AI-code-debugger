@@ -3,14 +3,14 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from tools import read_code, search_docs, run_python, apply_patch
 from state import AgentState
-
+import streamlit as st
+from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()
 
-llm = ChatOpenAI(
-    model="openai/gpt-4o-mini",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
-    base_url="https://openrouter.ai/api/v1",
-    max_tokens = 400
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-flash",
+    google_api_key=st.secrets["GEMINI_API_KEY"],
+    temperature=0,
 )
 
 def clean_code(text):
@@ -99,4 +99,5 @@ def test_fix(state: AgentState):
     result = run_python(test_script)
 
     return {"test_result": result}
+
 
