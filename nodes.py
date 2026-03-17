@@ -15,6 +15,7 @@ llm = ChatGoogleGenerativeAI(
     model="gemini-3-flash-preview",
     google_api_key=st.secrets["GEMINI_API_KEY"],
     temperature=0,
+    max_completion_token=400
 )
 
 # -------- Helpers --------
